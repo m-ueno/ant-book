@@ -1,27 +1,15 @@
 import unittest
 
-testinput = """W....WW.
-WW....W.
-..WW..WW
-......WW
-......W.
-..W....W
-WWW....W
-.W.W...W
-..W....W"""
-
 
 def dfs_loop(x0, y0, rows, width, height):
     """x0,y0からはじめ、そこから繋がっている点を.に置き換える"""
     assert rows[y0][x0] == "W"
 
     todo = [(x0, y0)]
+    rows[y0][x0] = "."
     while len(todo) > 0:
         x, y = todo.pop()
-        rows[y][x] = "."
         for dx, dy in [(dx, dy) for dx in [-1, 0, 1] for dy in [-1, 0, 1]]:
-            if dx == dy == 0:
-                continue
             xx, yy = x + dx, y + dy
             if xx < 0 or yy < 0 or xx >= width or yy >= height:
                 continue
@@ -44,7 +32,17 @@ def solve(rows, width, height) -> int:
 
 class Test(unittest.TestCase):
     def test_solve(self):
-        rows = [[x for x in row] for row in testinput.split("\n")]
+        test = """W....WW.
+WW....W.
+..WW..WW
+......WW
+......W.
+..W....W
+WWW....W
+.W.W...W
+..W....W"""
+
+        rows = [[x for x in row] for row in test.split("\n")]
         got = solve(rows, len(rows[0]), len(rows))
         self.assertEqual(got, 3)
 
