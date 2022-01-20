@@ -44,7 +44,7 @@ class Test(unittest.TestCase):
             ("ABABC", "ABCBA", 3),
         ]
         for i, (s, t, want) in enumerate(tests):
-            with self.subTest(f"i={i}"):
+            with self.subTest(i=i):
                 got = solve(s, t)
                 assert got == want
 

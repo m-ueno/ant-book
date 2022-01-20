@@ -54,7 +54,7 @@ class Test(unittest.TestCase):
             (([3, 5, 8], [3, 2, 2], 17), True),
         ]
         for i, (args, want) in enumerate(tests):
-            with self.subTest(f"i={i}"):
+            with self.subTest(i=i):
                 got = solve(*args)
                 assert got > 0, got
 

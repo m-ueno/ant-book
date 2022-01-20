@@ -189,7 +189,7 @@ class Test(unittest.TestCase):
         for f in [dp_heavy_cargo, solve, dp, dp2, dp3, dp_array]:
             with self.subTest(f"{f}"):
                 for i, ((w, v, cap), want) in enumerate(tests):
-                    with self.subTest(f"i={i}"):
+                    with self.subTest(i=i):
                         got = f(w, v, cap)
                         assert got == want
 

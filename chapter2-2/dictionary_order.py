@@ -28,7 +28,7 @@ class Test(unittest.TestCase):
             ("BCAB", "BABC"),
         ]
         for i, (s, want) in enumerate(tests):
-            with self.subTest(i):
+            with self.subTest(i=i):
                 got = solve(s)
                 self.assertEqual(got, want)
 

@@ -83,7 +83,7 @@ class Test(unittest.TestCase):
         ]
 
         for i, (f, (a, want)) in enumerate(product(fns, tests)):
-            with self.subTest(f"i={i}"):
+            with self.subTest(i=i):
                 assert f(a) == want
 
     def test_lower(self):

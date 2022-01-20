@@ -34,7 +34,7 @@ class Test(unittest.TestCase):
             ([1, 2, 3, 4, 5], 3 + 6 + 9 + 15),
         ]
         for i, (*args, want) in enumerate(tests):
-            with self.subTest(f"i={i}"):
+            with self.subTest(i=i):
                 got = solve(*args)
                 self.assertEqual(got, want)
 

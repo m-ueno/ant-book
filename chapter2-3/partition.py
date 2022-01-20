@@ -77,7 +77,7 @@ class Test(unittest.TestCase):
 
     def test_solve(self):
         for i, (args, want) in enumerate(self.tests):
-            with self.subTest(f"i={i}"):
+            with self.subTest(i=i):
                 assert solve(*args) == want
 
 

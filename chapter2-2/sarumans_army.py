@@ -36,7 +36,7 @@ class Test(unittest.TestCase):
             (10, [70, 30, 1, 7, 15, 20, 50], 4),
         ]
         for i, (r, xs, want) in enumerate(tests):
-            with self.subTest(f"i={i}"):
+            with self.subTest(i=i):
                 got = solve(r, xs)
                 self.assertEqual(got, want)
 

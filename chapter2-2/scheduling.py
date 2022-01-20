@@ -54,7 +54,7 @@ class Test(unittest.TestCase):
             (3, [1, 3, 5], [4, 6, 10], 2),
         ]
         for i, (n, s, t, want) in enumerate(tests):
-            with self.subTest(i):
+            with self.subTest(i=i):
                 got = solve(n, s, t)
                 self.assertEqual(got, want)
 
