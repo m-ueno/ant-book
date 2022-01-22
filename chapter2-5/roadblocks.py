@@ -12,10 +12,12 @@ E = tuple[V, V, int]
 def solve(start: V, goal: V, edges: Sequence[E]) -> int | float:
     """二番目の最短路
 
+    一般化するとk-th shortest pathという問題になる
+
     N個のノード N~5e3
     R本のエッジ R~1e6
-
     bellman-fordは O(|V||E|)~5e9 計算量ギリギリ
+    ダイクストラ O(|V|log(E)) を用いる
 
     vへの2番目の最短路はいずれか：
     - uへの最短路にu->vの辺をつなげたもの
@@ -55,7 +57,6 @@ def solve(start: V, goal: V, edges: Sequence[E]) -> int | float:
 
             if d1 < dist[v]:
                 dist[v] = d1
-                dist2[v] = d2
                 heappush(h, (d1, v))
 
             if d2 < dist2[v]:
