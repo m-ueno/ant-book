@@ -5,7 +5,7 @@ import unittest
 from math import inf
 from heapq import heappush, heappop
 
-from union_find_tree import UnionFindTree
+from tree import UnionFindTree
 
 V = int
 E = tuple[V, V, int]

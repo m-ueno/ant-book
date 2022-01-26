@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Union
 import unittest
 
-from union_find_tree import UnionFindTree
+from tree.union_find_tree import UnionFindTree
 
 
 def solve(n: int, k: int, info: list[tuple[int, int, int]]) -> int:

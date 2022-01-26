@@ -5,7 +5,7 @@ from math import inf
 from heapq import heappush, heappop
 import sys
 
-from union_find_tree import UnionFindTree
+from tree.union_find_tree import UnionFindTree
 
 # from tree import UnionFindTree
 
