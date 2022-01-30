@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import unittest
 from collections import Counter
 from typing import Any, Optional
@@ -37,6 +39,7 @@ class Test(unittest.TestCase):
             with self.subTest(i=i):
                 got = solve(*args)
                 self.assertEqual(got, want)
+
 
 if __name__ == "__main__":
     unittest.main()
