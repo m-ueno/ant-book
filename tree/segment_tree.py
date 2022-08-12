@@ -1,52 +1,52 @@
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 from math import floor, inf, log2
-from typing import TypeVar
-from typing_extensions import Self
+# from typing import TypeVar
+# from typing_extensions import Self
 import unittest
 
 
-# 代数的構造
-# monoid: X, op(X, X)->X, id
-class MinMonoid:
-    def op(self, other: int) -> int:
-        return self
+# # 代数的構造
+# # monoid: X, op(X, X)->X, id
+# class MinMonoid:
+#     def op(self, other: int) -> int:
+#         return self
 
-    def e(self) -> int:
-        return 1e99
-
-
-T = TypeVar("T")
-# Monoid ABC (~ Monoid trait)
-class Monoid(ABC):
-    @abstractmethod
-    @classmethod
-    def e(cls) -> Self:
-        pass
-
-    @abstractmethod
-    def op(self: Self, other: Self) -> Self:
-        pass
+#     def e(self) -> int:
+#         return 1e99
 
 
-class Node(Monoid):
-    def __init__(self, theta: float, z: complex):
-        self.theta = theta
-        self.z = z
+# T = TypeVar("T")
+# # Monoid ABC (~ Monoid trait)
+# class Monoid(ABC):
+#     @abstractmethod
+#     @classmethod
+#     def e(cls) -> Self:
+#         pass
 
-    @classmethod
-    def e(cls) -> Self:
-        return Node(0, complex(0, 0))
-
-    def op(self, other: Self) -> Self:
-        return Node(self.theta + other.theta, self.z + other.z)
+#     @abstractmethod
+#     def op(self: Self, other: Self) -> Self:
+#         pass
 
 
-class SegmentTree:
-    def __init__(self, xs: list[Monoid]):
-        pass
+# class Node(Monoid):
+#     def __init__(self, theta: float, z: complex):
+#         self.theta = theta
+#         self.z = z
 
-    def query(self, s: int, t: int) -> Monoid:
-        pass
+#     @classmethod
+#     def e(cls) -> Self:
+#         return Node(0, complex(0, 0))
+
+#     def op(self, other: Self) -> Self:
+#         return Node(self.theta + other.theta, self.z + other.z)
+
+
+# class SegmentTree:
+#     def __init__(self, xs: list[Monoid]):
+#         pass
+
+#     def query(self, s: int, t: int) -> Monoid:
+#         pass
 
 
 class RangeMinimumQuery:
@@ -75,7 +75,7 @@ class RangeMinimumQuery:
         """半開区間 [s, t) の最小値"""
         return self._query(s, t, 0, 0, self.n)
 
-    def _query(self, s, t, k: int, l: int, r: int) -> int:
+    def _query(self, s, t, k: int, l: int, r: int):
         # k: 見ているノードの位置
         # [l, r): self.data[k]が表している区間
         if r <= s or t <= l:  # (1) 範囲外
